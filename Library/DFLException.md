@@ -1,7 +1,7 @@
 # DEFLException
 Provides an encapsulation of the most common communication errors
 
-The class has the following methods and enummeration:y applications: TerminalFactorySpi
+The class has the following methods and enummeration:
 
 |            METHODS             |                                         DESCRIPTION                                               |
 |:-------------------------------|:--------------------------------------------------------------------------------------------------|
