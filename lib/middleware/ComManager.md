@@ -6,8 +6,7 @@ The class has the following methods and enummeration:
 
 |METHODS                                       |DESCRIPTION                                                                                        |
 |:---------------------------------------------|:--------------------------------------------------------------------------------------------------|
-|public void scan();                           |Initializes the context structure representation if needed and determines which devices can be     |
-|                                              |currently identified in the system.                                                                |
+|public void scan();                           |Initializes the context structure representation if needed and determines which devices can be currently identified in the system.|
 |public String[] listReaders();                |Obtains the names of the supported devices currently connected to the system.                      | 
 |                                              |@return A String array containing the connected devices names                                      |
 |public void select(String readerName);        |Marks a device identified by readerName as selected for future operations only if the given name   |
