@@ -8,354 +8,44 @@ The class has the following methods and enummeration:
 |public enum DigitFormat|Format of the digits representing a value|
 |public static enum SignMode|Indicates whether a number should be interpreted as Signed or Unsigned|
 |public static enum ByteOrder|Byte significance order of the number representation|
-|public static byte toByte(String s)|Converts an hexadecimal string into its byte equivalent @param s the string containing a byte in hexadecimal format @return a byte 
-equivalent to <code>s</code>|
-
-	
-
-
+|public static byte toByte(String s)|Converts an hexadecimal string into its byte equivalent @param s the string containing a byte in hexadecimal format @return a byte equivalent to <code>s</code>|
+|public static byte toByte(String s, DigitFormat df)|Converts a string in <code>df</code> digit format into its byte equivalent @param s the string containing a byte @param df an instance of class <code>DigitFormat</code> indicating the digit format in which <code>s</code> should be interpreted @return a byte equivalent to <code>s</code>|
+|public static byte toByte(char c)|Converts an hexadecimal char into its byte equivalent @param c the char containing a digit in hexadecimal format @return a byte equivalent to <code>c</code>|
+|public static byte toByte(char c, DigitFormat df)|Converts a char in <code>df</code> digit format into its byte equivalent @param c the char containing a digit in <code>df</code> format @param df an instance of class <code>DigitFormat</code> indicating the digit format in which <code>c</code> should be interpreted @return a byte equivalent to <code>c</code>|
+|public static int toInt(String s)|Converts an unsigned hexadecimal string with bytes stored from less significant to most significant into its int equivalent @param s the 
+     * string containing an unsigned number @return an unsigned int number equivalent to <code>s</code>|
+|public static int toInt(String s, DigitFormat df)|Converts an unsigned string in <code>df</code> digit format with bytes stored from less significant to most significant into its int equivalent @param s the string containing an unsigned number @param df an instance of class <code>DigitFormat</code> indicating the digit format in which <code>s</code> should be interpreted @return a unsigned int number equivalent to <code>s</code>|
+|public static int toInt(String s, SignMode sm)|Converts an hexadecimal string with <code>sm</code> sign mode and with bytes stored from less significant to most significant into its int equivalent @param s the string containing a number @param sm an instance of class <code>SignMode</code> indicating whether <code>s</code> should be interpreted as representing a signed or unsigned value @return a int number equivalent to <code>s</code>|
+|public static int toInt(String s, ByteOrder bo)|Converts an hexadecimal unsigned string with bytes stored as indicated by <code>bo</code> into its int equivalent @param s the string containing an unsigned number @param bo an instance of class <code>ByteOrder</code> indicating whether <code>s</code> should be interpreted as being represented with the less significant bytes first or the most significant bytes first @return a unsigned int number equivalent to <code>s</code>|
+| public static int toInt(String s, DigitFormat df, SignMode sm)|Converts a string in digit format <code>df</code with <code>sm</code> sign mode and with bytes stored from less significant to most significant into its int equivalent @param s the string containing a number @param df an instance of class <code>DigitFormat</code> indicating the digit format in which <code>s</code> should be interpreted @param sm an instance of class <code>SignMode</code> indicating whether <code>s</code> should be interpreted as representing a signed or unsigned value @return a int number equivalent to <code>s</code>|
+|public static int toInt(String s, DigitFormat df, ByteOrder bo)| Converts an unsigned string in digit format <code>df</code> with bytes stored as indicated by <code>bo</code> into its int equivalent @param s the string containing an unsigned number @param df an instance of class <code>DigitFormat</code> indicating the digit format in which <code>s</code> should be  @param bo an instance of class <code>ByteOrder</code> indicating whether <code>s</code> should be interpreted as being represented with the less significant bytes first or the most significant bytes first @return a unsigned int number equivalent to <code>s</code>|
+|public static int toInt(String s, SignMode sm, ByteOrder bo)|Converts an hexadecimal string with <code>sm</code> sign mode and with bytes stored as indicated by <code>bo</code> into its int equivalent @param s the string containing an unsigned number @param sm an instance of class <code>SignMode</code> indicating whether <code>s</code> should be interpreted as representing a signed or unsigned value @param bo an instance of class <code>ByteOrder</code> indicating whether <code>s</code> should be interpreted as being represented with the less significant bytes first or the most significant bytes first @return an int number equivalent to <code>s</code>|
+|public static int toInt(String s, DigitFormat df, SignMode sm, ByteOrder bo)|Converts a string in digit format <code>df</code> with <code>sm</code> sign mode and with bytes stored as indicated by <code>bo</code> into its int equivalent @param s the string containing an unsigned number @param df an instance of class <code>DigitFormat</code> indicating the digit format in which <code>s</code> should be interpreted @param sm an instance of class <code>SignMode</code> indicating whether <code>s</code> should be interpreted as representing a signed or unsigned value @param bo an instance of class <code>ByteOrder</code> indicating whether <code>s</code> should be interpreted as being represented with the less significant bytes first or the most significant bytes first @return an int number equivalent to <code>s</code>|
+|public static int byteStringValue(String s)|Converts an hexadecimal string representing a single byte into its int equivalent @param s the string to be converted @return an int number equivalent to <code>s</code>|
+|public static int byteStringValue|Converts a string in digit format <code>df</code> representing a single byte into its int equivalent @param s the string to be converted @param df an instance of class <code>DigitFormat</code> indicating the format in which <code>s</code> should be interpreted @return an int number equivalent to <code>s</code>|
+|public static int toInt(char c)|Converts an haxadecimal char into its int equivalent @param c the char to be converted @return an int equivalent to <code>c</code>|
+|public static int toInt(char c, DigitFormat df)|Converts a char in digit format <code>df</code> into its int equivalent @param c the char to be converted @param df an instance of class <code>DigitFormat</code> indicating the digit format in which <code>c</code> should be interpreted @return an int equivalent to <code>c</code>|
+|public static String toString(String s, DigitFormat idf, DigitFormat odf)|Changes the digit format representation of a string @param s the string to be modified @param idf an instance of class <code>DigitFormat</code> indicating the digit format in which the input string <code>s</code> should be interpreted @param odf an instance of class <code>DigitFormat</code> indicating the digit format in which the output string should be represented @return a string equivalent to <code>s</code> but in <code>odf</code> digit format|
+|public static String toString(byte b)|Generates an hexadecimal unsigned string representation of a byte @param b the byte to be converted @return a string representation of <code>b</code>|
+|public static String toString(byte b, DigitFormat df)|Generates an unsigned string representation in <code>df</code> digit format of a byte @param b the byte to be converted @param df an instance of class <code>DigitFormat</code> indicating the digit format in which the output string should be represented  @return a string representation of <code>b</code>|
+|public static String toString(byte b, SignMode sm)|Generates an hexadecimal string representation with <code>sm</code> sign mode of a byte @param b the byte to be converted @param sm an instance of class <code>SignMode</code> indicating whether the output string should be represented as a signed or unsigned value @return a string representation of <code>b</code>|
+|public static String toString(byte b, DigitFormat df, SignMode sm)|Generates a string representation in <code>df</code> digit format with <code>sm</code> sign mode of a byte @param b the byte to be converted @param df an instance of class <code>DigitFormat</code> indicating the digit format in which the output string should be represented @param sm an instance of class <code>SignMode</code> indicating whether the output string should be represented as a signed or unsigned value @return a string representation of <code>b</code>|
+|public static String toString(int num)|Generates an hexadecimal unsigned byte string representation with the bytes ordered from less significant to most significant of an int @param num the int to be converted @return a string representation of <code>num</code>|
+|public static String toString(int num, DigitFormat df)|Generates an unsigned byte string representation in <code>df</code> digit format with the bytes ordered from less significant to most significant of an int @param num the int to be converted @param df an instance of  class <code>DigitFormat</code> indicating the digit format in which the output string should be represented @return a string representation of <code>num</code>|
+|public static String toString(int num, SignMode sm)|Generates an hexadecimal byte string representation with <code>sm</code> sign mode and with the bytes ordered from less significant to most significant of an int @param num the int to be converted @param sm an instance of class <code>SignMode</code> indicating whether the output string should be represented as a signed or unsigned value @return a string representation of <code>num</code>|
+|public static String toString(int num, ByteOrder bo)|Generates an hexadecimal unsigned byte string representation with the bytes ordered as indicated by <code>bo</code> of an int @param num the int to be converted @param bo an instance of class <code>ByteOrder</code> indicating whether <code>s</code> should be represented with the less significant bytes first or the most significant bytes first @return a string representation of <code>num</code>|
+|public static String toString(int num, DigitFormat df, SignMode sm)|Generates a byte string representation in <code>df</code> digit format with <code>sm</code> sign mode and with the bytes ordered from less significant to most significant of an int @param num the int to be converted @param df an instance of class <code>DigitFormat</code> indicating the digit format in which the output string should be represented @param sm an instance of class <code>SignMode</code> indicating whether the output string should be represented as a signed or unsigned value @return a string representation of <code>num</code>|
+|public static String toString(int num, DigitFormat df, ByteOrder bo)|Generates an unsigned byte string representation in <code>df</code> digit format with the bytes ordered as indicated by <code>bo</code> of an int @param num the int to be converted @param df an instance of class <code>DigitFormat</code> indicating the digit format in which the output string should be represented @param bo an instance of class <code>ByteOrder</code> indicating whether <code>s</code> should be represented with the less significant bytes first or the most significant bytes first @return a string representation of <code>num</code>|
+|public static String toString(int num, SignMode sm, ByteOrder bo|Generates an hexadecimal byte string representation with <code>sm</code> sign mode and with the bytes ordered as indicated by <code>bo</code> of an int @param num the int to be converted @param sm an instance of class <code>SignMode</code> indicating whether the output string should be represented as a signed or unsigned value @param bo an instance of class <code>ByteOrder</code> indicating whether <code>s</code> should be represented with the less significant bytes first or the most significant bytes first @return a string representation of <code>num</code>|
+|public static String toString(int num, DigitFormat df, SignMode sm, ByteOrder bo)|Generates a byte string representation in <code>df</code> digit format with <code>sm</code> sign mode and with the bytes ordered as indicated by <code>bo</code> of an int @param num the int to be converted @param df an instance of class <code>DigitFormat</code> indicating the digit format in which the output string should be represented @param sm an instance of class <code>SignMode</code> indicating whether the output string should be  represented as a signed or unsigned value @param bo an instance of class <code>ByteOrder</code> indicating whether <code>s</code> should be represented with the less significant bytes first or the most significant bytes first @return a string representation of <code>num</code>|
 
     /*  */
-    {
-    	return toByte(s, DigitFormat.HEX);	
-    }
-    
-    /* Converts a string in <code>df</code> digit format into its byte equivalent
-     * @param s the string containing a byte @param df an instance of class 
-     * <code>DigitFormat</code> indicating the digit format in which <code>s</code>
-     * should be interpreted @return a byte equivalent to <code>s</code> */
-    public static byte toByte(String s, DigitFormat df){   	
-    	if(!checkDigits(s,df))
-            throw new IllegalArgumentException(
-                    "Invalid " + df + " Digit Format: " + s);  
-    	if(numOfBytes(s,df)!=1)
-            throw new IllegalArgumentException(
-                "Invalid String Length: " + s);
-    	return (byte)toInt(s,df);  			 		  	
-    }
-    
-    /* Converts an hexadecimal char into its byte equivalent @param c the char 
-     * containing a digit in hexadecimal format @return a byte equivalent to 
-     * <code>c</code> */
-    public static byte toByte(char c){
-        return toByte(c, DigitFormat.HEX);
-    }
-    
-    /* Converts a char in <code>df</code> digit format into its byte equivalent
-     * @param c the char containing a digit in <code>df</code> format @param df 
-     * an instance of class <code>DigitFormat</code> indicating the digit format 
-     * in which <code>c</code> should be interpreted @return a byte equivalent 
-     * to <code>c</code> */
-    public static byte toByte(char c, DigitFormat df){
-    	if(!checkDigit(c, df))
-            throw new IllegalArgumentException(
-                    "Invalid " + df + " Digit Format: " + c);
-    	return (byte)toInt(c, df);
-    }
-        
-    /* Converts an unsigned hexadecimal string with bytes stored from less 
-     * significant to most significant into its int equivalent @param s the 
-     * string containing an unsigned number @return an unsigned int number }
-     * equivalent to <code>s</code> */
-    public static int toInt(String s){
-      	return toInt(s, DigitFormat.HEX, SignMode.UNSIGNED,
-                ByteOrder.LSB_MSB);
-    }
-    
-    /* Converts an unsigned string in <code>df</code> digit format with bytes 
-     * stored from less significant to most significant into its int equivalent
-     * @param s the string containing an unsigned number @param df an instance 
-     * of class <code>DigitFormat</code> indicating the digit format in which 
-     * <code>s</code> should be interpreted @return a unsigned int number 
-     * equivalent to <code>s</code> */
-    public static int toInt(String s, DigitFormat df){
-    	return toInt(s, df, SignMode.UNSIGNED, ByteOrder.LSB_MSB);
-    }
-    
-    /* Converts an hexadecimal string with <code>sm</code> sign mode and
-     * with bytes stored from less significant to most significant into its int 
-     * equivalent @param s the string containing a number @param sm an instance 
-     * of class <code>SignMode</code> indicating whether <code>s</code> should 
-     * be interpreted as representing a signed or unsigned value @return a int 
-     * number equivalent to <code>s</code> */
-    public static int toInt(String s, SignMode sm){
-    	return toInt(s, DigitFormat.HEX, sm, ByteOrder.LSB_MSB);
-    }
-    
-    /* Converts an hexadecimal unsigned string with bytes stored as indicated by
-     * <code>bo</code> into its int equivalent @param s the string containing an 
-     * unsigned number @param bo an instance of class <code>ByteOrder</code>
-     * indicating whether <code>s</code> should be interpreted as being represented 
-     * with the less significant bytes first or the most significant bytes first
-     * @return a unsigned int number equivalent to <code>s</code> */
-    public static int toInt(String s, ByteOrder bo){
-    	return toInt(s, DigitFormat.HEX, SignMode.UNSIGNED, bo);
-    }
-    
-    /* Converts a string in digit format <code>df</code with <code>sm</code> 
-     * sign mode and with bytes stored from less significant to most significant 
-     * into its int equivalent @param s the string containing a number
-     * @param df an instance of class <code>DigitFormat</code> indicating the 
-     * digit format in which <code>s</code> should be interpreted
-     * @param sm an instance of class <code>SignMode</code> indicating whether 
-     * <code>s</code> should be interpreted as representing a signed or unsigned 
-     * value @return a int number equivalent to <code>s</code> */
-    public static int toInt(String s, DigitFormat df, SignMode sm){
-    	return toInt(s, df, sm, ByteOrder.LSB_MSB);    	
-    }
-    
-    /* Converts an unsigned string in digit format <code>df</code> with bytes 
-     * stored as indicated by <code>bo</code> into its int equivalent
-     * @param s the string containing an unsigned number @param df an instance of 
-     * class <code>DigitFormat</code> indicating the digit format in which 
-     * <code>s</code> should be  @param bo an instance of class <code>ByteOrder</code>
-     * indicating whether <code>s</code> should be interpreted as being represented 
-     * with the less significant bytes first or the most significant bytes first
-     * @return a unsigned int number equivalent to <code>s</code> */
-    public static int toInt(String s, DigitFormat df, ByteOrder bo){
-    	return toInt(s, df, SignMode.UNSIGNED, bo);   	
-    }
-  
-    /* Converts an hexadecimal string with <code>sm</code> sign mode and
-     * with bytes stored as indicated by <code>bo</code> into its int equivalent
-     * @param s the string containing an unsigned number * @param sm an instance 
-     * of class <code>SignMode</code> indicating whether <code>s</code> should be
-     * interpreted as representing a signed or unsigned value @param bo an instance 
-     * of class <code>ByteOrder</code> indicating whether <code>s</code> should 
-     * be interpreted as being represented with the less significant bytes first 
-     * or the most significant bytes first @return an int number equivalent to 
-     * <code>s</code> */
-    public static int toInt(String s, SignMode sm, ByteOrder bo){
-    	return toInt(s, DigitFormat.HEX, sm, bo);    	
-    }
-    
-    /* Converts a string in digit format <code>df</code> with <code>sm</code> 
-     * sign mode and with bytes stored as indicated by <code>bo</code> into its 
-     * int equivalent @param s the string containing an unsigned number
-     * @param df an instance of class <code>DigitFormat</code> indicating the 
-     * digit format in which <code>s</code> should be interpreted @param sm an 
-     * instance of class <code>SignMode</code> indicating whether <code>s</code> 
-     * should be interpreted as representing a signed or unsigned value
-     * @param bo an instance of class <code>ByteOrder</code> indicating whether 
-     * <code>s</code> should be interpreted as being represented with the less 
-     * significant bytes first or the most significant bytes first
-     * @return an int number equivalent to <code>s</code> */
-    public static int toInt(String s, DigitFormat df, SignMode sm, 
-            ByteOrder bo){
-    	boolean neg = false;
-    	if((sm == SignMode.SIGNED) && isNeg(s,df,bo)){
-            neg = true;
-            s = twosComp(s,df,bo);
-    	}
-    	int len = numOfBytes(s, df);
-    	if(!checkIntSpace(s, df, sm, bo))
-            throw new IllegalArgumentException(
-                    "Invalid String Length: " + s);   	
-       	int blen = s.length()/len;
-    	int num = 0;
-    	if(bo == ByteOrder.LSB_MSB){
-	    for(int i = 0; i<len;i++){
-                num = num +
-                    byteStringValue(s.substring(i*blen, i*blen + blen), df) *
-                    (int) Math.pow(256, i);
-            }
-	}
-    	else{
-            for(int i = len-1; i>=0;i--){			
-                num = num +
-                    byteStringValue(s.substring(i*blen, i*blen + blen), df) * 
-                    (int) Math.pow(256, len-i-1);
-            }			
-	}
-	if(neg) num = -num;
-	return num;    	
-    }
-    
-    /* Converts an hexadecimal string representing a single byte into its int equivalent
-     * @param s the string to be converted @return an int number equivalent 
-     * to <code>s</code> */
-    public static int byteStringValue(String s){
-    	return byteStringValue(s, DigitFormat.HEX);    	
-    }
-    
-    /* Converts a string in digit format <code>df</code> representing a single 
-     * byte into its int equivalent @param s the string to be converted
-     * @param df an instance of class <code>DigitFormat</code> indicating the 
-     * format in which <code>s</code> should be interpreted @return an int number
-     * equivalent to <code>s</code> */
-    public static int byteStringValue(String s, DigitFormat df){
-    	int base;
-    	if(numOfBytes(s, df)!=1) 
-            throw new IllegalArgumentException(
-                    "Invalid String Length: " + s);
-    	if(df == DigitFormat.HEX) base = 16;
-    	else if(df == DigitFormat.BIN) base = 2;
-    	else 
-            throw new IllegalArgumentException(
-                    df +
-                    " Digit Format Not Supported in " +
-                    "byteStringValue(String, DigitFormat):int");
-    	int num = 0;
-	for (int i = s.length()-1; i >= 0; i--){
-            char c = s.charAt(i);
-            int n = toInt(c);
-            num = num + n*(int)Math.pow(base, s.length()-i-1); 		
-    	}
-    	return num;
-    }
-    
-    /* Converts an haxadecimal char into its int equivalent @param c the char to 
-     * be converted @return an int equivalent to <code>c</code> */
-    public static int toInt(char c){
-    	return toInt(c, DigitFormat.HEX);    	
-    }
-   
-    /* Converts a char in digit format <code>df</code> into its int equivalent
-     * @param c the char to be converted @param df an instance of class 
-     * <code>DigitFormat</code> indicating the digit format in which <code>c</code>
-     * should be interpreted @return an int equivalent to <code>c</code> */
-    public static int toInt(char c, DigitFormat df){
-    	if(!checkDigit(c,df))
-            throw new IllegalArgumentException(
-                    "Invalid " + df + " Digit Format: " + c);
-    	if((c >= '0')&&(c<='9')) return c - '0';
-    	else if ((c >= 'a')&&(c <= 'f')) return c - 'a' + 10;
-    	else return c - 'A' + 10;
-    }
- 
-    /* Changes the digit format representation of a string @param s the string 
-     * to be modified @param idf an instance of class <code>DigitFormat</code>
-     * indicating the digit format in which the input string <code>s</code> 
-     * should be interpreted @param odf an instance of class <code>DigitFormat</code>
-     * indicating the digit format in which the output string should be represented
-     * @return a string equivalent to <code>s</code> but in <code>odf</code> 
-     * digit format */
-    public static String toString(String s, DigitFormat idf, 
-            DigitFormat odf){
-        return toString(toInt(s,idf), odf);    	
-    }
-   
-    /* Generates an hexadecimal unsigned string representation of a byte
-     * @param b the byte to be converted @return a string representation of <code>b</code> */
-    public static String toString(byte b){
-    	return toString(b, DigitFormat.HEX, SignMode.UNSIGNED);
-    } 
-   
-    /* Generates an unsigned string representation in <code>df</code> digit format 
-     * of a byte @param b the byte to be converted @param df an instance of 
-     * class <code>DigitFormat</code> indicating the digit format in which the 
-     * output string should be represented  @return a string representation of 
-     * <code>b</code> */
-    public static String toString(byte b, DigitFormat df){
-    	return toString(b, df, SignMode.UNSIGNED);
-    }
-    
-    /* Generates an hexadecimal string representation with <code>sm</code> sign 
-     * mode of a byte @param b the byte to be converted @param sm an instance of 
-     * class <code>SignMode</code> indicating whether the output string should be 
-     * represented as a signed or unsigned value @return a string representation 
-     * of <code>b</code> */
-    public static String toString(byte b, SignMode sm){
-	return toString(b, DigitFormat.HEX, sm);
-    }
-   
-    /* Generates a string representation in <code>df</code> digit format with 
-     * <code>sm</code> sign mode of a byte @param b the byte to be converted
-     * @param df an instance of class <code>DigitFormat</code> indicating the 
-     * digit format in which the output string should be represented
-     * @param sm an instance of class <code>SignMode</code> indicating whether 
-     * the output string should be represented as a signed or unsigned value
-     * @return a string representation of <code>b</code> */
-    public static String toString(byte b, DigitFormat df, SignMode sm){
-    	return toByteString((int)b, df);
-    }
-   
-    /* Generates an hexadecimal unsigned byte string representation with the bytes 
-     * ordered from less significant to most significant of an int @param num the 
-     * int to be converted @return a string representation of <code>num</code> */
-    public static String toString(int num){
-    	return toString(num, DigitFormat.HEX, 
-                SignMode.UNSIGNED, ByteOrder.LSB_MSB);
-    } 
-   
-    /* Generates an unsigned byte string representation in <code>df</code> digit 
-     * format with the bytes ordered from less significant to most significant
-     * of an int @param num the int to be converted @param df an instance of 
-     * class <code>DigitFormat</code> indicating the digit format in which the 
-     * output string should be represented @return a string representation 
-     * of <code>num</code> */
-    public static String toString(int num, DigitFormat df){
-    	return toString(num, df, SignMode.UNSIGNED, ByteOrder.LSB_MSB);
-    }
-   
-    /* Generates an hexadecimal byte string representation with <code>sm</code> 
-     * sign mode and with the bytes ordered from less significant to most significant
-     * of an int @param num the int to be converted @param sm an instance of 
-     * class <code>SignMode</code> indicating whether the output string should be 
-     * represented as a signed or unsigned value @return a string representation 
-     * of <code>num</code> */
-    public static String toString(int num, SignMode sm){
-	return toString(num, DigitFormat.HEX, sm, ByteOrder.LSB_MSB);
-    }
-   
-    /* Generates an hexadecimal unsigned byte string representation with the bytes 
-     * ordered as indicated by <code>bo</code> of an int @param num the int to be 
-     * converted @param bo an instance of class <code>ByteOrder</code> indicating 
-     * whether <code>s</code> should be represented with the less significant bytes 
-     * first or the most significant bytes first @return a string representation 
-     * of <code>num</code> */
-    public static String toString(int num, ByteOrder bo){
-	return toString(num, DigitFormat.HEX, SignMode.UNSIGNED, bo);
-    }
-   
-    /* Generates a byte string representation in <code>df</code> digit format
-     * with <code>sm</code> sign mode and with the bytes ordered from less 
-     * significant to most significant of an int @param num the int to be converted
-     * @param df an instance of class <code>DigitFormat</code> indicating the 
-     * digit format in which the output string should be represented
-     * @param sm an instance of class <code>SignMode</code> indicating whether 
-     * the output string should be represented as a signed or unsigned value
-     * @return a string representation of <code>num</code> */
-    public static String toString(int num, DigitFormat df, SignMode sm){
-    	return toString(num, df, sm, ByteOrder.LSB_MSB);
-    }
-   
-    /* Generates an unsigned byte string representation in <code>df</code> digit 
-     * format with the bytes ordered as indicated by <code>bo</code> of an int
-     * @param num the int to be converted @param df an instance of class 
-     * <code>DigitFormat</code> indicating the digit format in which the output string
-     * should be represented @param bo an instance of class <code>ByteOrder</code>
-     * indicating whether <code>s</code> should be represented with the less 
-     * significant bytes first or the most significant bytes first
-     * @return a string representation of <code>num</code> */
-    public static String toString(int num, DigitFormat df, ByteOrder bo){
-    	return toString(num, df, SignMode.UNSIGNED, bo);
-    }
-  
-    /* Generates an hexadecimal byte string representation with <code>sm</code> 
-     * sign mode and with the bytes ordered as indicated by <code>bo</code>
-     * of an int @param num the int to be converted @param sm an instance of class 
-     * <code>SignMode</code> indicating whether the output string should be represented
-     * as a signed or unsigned value @param bo an instance of class <code>ByteOrder</code>
-     * indicating whether <code>s</code> should be represented with the less 
-     * significant bytes first or the most significant bytes first
-     * @return a string representation of <code>num</code> */
-    public static String toString(int num, SignMode sm, ByteOrder bo){
+    ){
     	return toString(num, DigitFormat.HEX, sm, bo);
     }
      
-    /* Generates a byte string representation in <code>df</code> digit format
-     * with <code>sm</code> sign mode and with the bytes ordered as indicated by 
-     * <code>bo</code> of an int @param num the int to be converted @param df an 
-     * instance of class <code>DigitFormat</code> indicating the digit format in 
-     * which the output string should be represented @param sm an instance of 
-     * class <code>SignMode</code> indicating whether the output string should be 
-     * represented as a signed or unsigned value @param bo an instance of class 
-     * <code>ByteOrder</code> indicating whether <code>s</code> should be 
-     * represented with the less significant bytes first or the most significant 
-     * bytes first @return a string representation of <code>num</code> */
-    public static String toString(int num, DigitFormat df, 
-            SignMode sm, ByteOrder bo){
+    /*  */
+    {
     	StringBuilder sb = new StringBuilder();
     	String s;
     	int len, aux;
