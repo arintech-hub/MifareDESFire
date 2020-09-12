@@ -5,58 +5,18 @@ The class has the following methods and enummeration:
 
 |METHODS                                       |DESCRIPTION                                                                                        |
 |:---------------------------------------------|:--------------------------------------------------------------------------------------------------|
-|public static byte[] toBA(String s)           |Generates a byte array corresponding to the one represented in the hexadecimal string <code>s</code> @param s the string to be converted @return a byte array representing the string <code>s</code>|
-    
-    /* Generates a byte array corresponding to the one represented in the string 
-     * <code>s</code> @param s the string to be converted @param df an instance 
-     * of class <code>DigitFormat</code> indicating the digit format in which 
-     * <code>s</code> is represented @return a byte array representing the string 
-     * <code>s</code> */
-    public static byte[] toBA(String s, DigitFormat df){
-    	byte[] ba = new byte[DigitUtils.numOfBytes(s, df)];
-    	if(df == DigitFormat.HEX){
-    		for(int i = 0; i < ba.length; i++){
-    			String ss = new String(s.substring(2*i, 2*i+2));
-    			ba[i] = DigitUtils.toByte(ss, df);
-    		}
-    	}
-    	else if(df == DigitFormat.BIN){
-    		for(int i = 0; i < ba.length; i++){
-    			String ss = new String(s.substring(2*i, 2*i+8));
-    			ba[i] = DigitUtils.toByte(ss, df);
-    		}    		
-    	}
-    	
-    	else throw new IllegalArgumentException(df + 
-                " Digit Format Not Supported in " +
-    		"toBA(String s, DigitFormat df):byte[]");
-    	return ba;
-    }
-
-    /* Generates a byte array corresponding to the one represented in
-     * the unsigned hexadecimal string <code>s</code>, from less significant 
-     * byte to most significant byte @param s the string to be converted
-     * @param olen the desired length of the output byte array @return a byte 
-     * array of length <code>olen</code> representing the hexadecimal string 
-     * <code>s</code> */
-    public static byte[] toBA(String s, int olen){
-    	
-    	return toBA(s, olen, DigitFormat.HEX, 
-                SignMode.UNSIGNED, ByteOrder.LSB_MSB);
-    	
-    }
-    
-    /* Generates a byte array corresponding to the one represented in the unsigned 
-     * string <code>s</code>, from less significant byte to most significant byte
-     * @param s the string to be converted @param olen the desired length of the 
-     * output byte array @param df an instance of class <code>DigitFormat</code> 
+|public static byte[] toBA(String s)
+|Generates a byte array corresponding to the one represented in the hexadecimal string <code>s</code> @param s the string to be converted @return a byte array representing the string <code>s</code>|
+| public static byte[] toBA(String s, DigitFormat df)
+|Generates a byte array corresponding to the one represented in the string <code>s</code> @param s the string to be converted @param df an instance of class <code>DigitFormat</code> indicating the digit format in which <code>s</code> is represented @return a byte array representing the string 
+<code>s</code>|
+|public static byte[] toBA(String s, int olen)|Generates a byte array corresponding to the one represented in the unsigned hexadecimal string <code>s</code>, from less significant byte to most significant byte @param s the string to be converted @param olen the desired length of the output byte array @return a byte array of length <code>olen</code> representing the hexadecimal string <code>s</code>|
+|public static byte[] toBA(String s, int olen, DigitFormat df)|Generates a byte array corresponding to the one represented in the unsigned string <code>s</code>, from less significant byte to most significant byte @param s the string to be converted @param olen the desired length of the output byte array @param df an instance of class <code>DigitFormat</code> 
      * indicating the digit format in which <code>s</code> is represented
      * @return a byte array of length <code>olen</code> representing the string 
-     * <code>s</code> */
-    public static byte[] toBA(String s, int olen, DigitFormat df){    	
-    	return toBA(s, olen, df, SignMode.UNSIGNED, ByteOrder.LSB_MSB);
-    }
+     * <code>s</code>
     
+ 
    /* Generates a byte array corresponding to the one represented in
      * the hexadecimal string <code>s</code>, from less significant byte
      * to most significant byte @param s the string to be converted @param olen 
