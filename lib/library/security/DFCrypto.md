@@ -28,86 +28,13 @@ The class has the following methods and enummeration:
 |public static byte[] prepareSendValueData(FID fid, Value value, ComSet comSet, AccessRights ar, ComCode com, DFSession session)|Generates the byte array to send a value @param value an instance of class <code>Value</code> representing the amount to send @param comSet an instance of class <code>ComSet</code> representing the current communication settings @param ar an instance of class <code>AccessRights</code> representing the current access rights @param com an instance of class <code>ComCode</code> representing the command code @param session an instance of class <code>DFSession</code> representing the current communication session @return a byte array with the data to be sent suitably formatted|
 |public static ComSet getSendValueEffComSet(ComSet comSet, AccessRights ar, ComCode com, DFSession session)|Obtains the communication settings that will effectively be used when sending a value @param comSet an instance of class <code>ComSet</code> representing the current communication settings @param ar an instance of class <code>AccessRights</code> representing the current access rights @param com an instance of class <code>ComCode</code> representing the command code @param session an instance of class <code>DFSession</code> representing the current communication session @return an instance of class <code>ComSet</code> representing the effective communication settings|
 |public static RecordsRes getRecordsRes(byte[] res, Size length, Size recSize, ComSet comSet, AccessRights ar, DFSession session)|Extracts the effective record bytes from a response frame @param res a byte array received from a card, without the status code @param length an instance of class <code>Size</code> representing the number of records that have been read from the card @param recSize an instance of class <code>Size</code> representing the length of each record @param comSet an instance of class <code>ComSet</code> representing the current communication settings @param ar an instance of class <code>AccessRights</code> representing the current access rights @param session an instance of class <code>DFSession</code> representing the current communication session @return an instance of class <code>RecordsRes</code> corresponding to the effective read records response structure|
-	
+|public static byte[] padding(byte[] data, AuthType auth)|Performs the padding to a byte array according to the proper authentication type @param data a byte array containing data @param auth an instance of class <code>AuthType</code> representing the current authentication type @return a padded byte array|
+|public static byte[] padding(byte[] data, AuthType auth, PaddingMode pad)|Performs the padding to a byte array according to the proper authentication type @param data a byte array containing data @param auth an instance of class <code>AuthType</code> representing the current authentication type @param pad an instance of class <code>PaddingMode</code> indicating the mode by which the padding should be performed @return a padded byte array|
+|public static byte[] CRC(ComCode com, byte[] plainParam, byte[] data, AuthType auth)|Computes the Cyclic Redundancy Code @param com an instance of class <code>ComCode</code> representing the command code @param plainParam a byte array containing the send parameters in plain @param data a byte array containing the data to be sent @param auth an instance of class <code>AuthType</code> representing the current authentication type @return a byte array corresponding to the computed CRC|
+|public static byte[] CRC(ComCode com, byte[] data, AuthType auth)|Computes the Cyclic Redundancy Code @param com an instance of class <code>ComCode</code> representing the command code @param data a byte array containing the data to be sent @param auth an instance of class <code>AuthType</code> representing the current authentication type @return a byte array corresponding to the computed CRC|
+|public static byte[] CRC(byte[] data, AuthType auth) & private static byte[] CRC(byte[] data, SC sc, AuthType auth)|Computes the Cyclic Redundancy Code @param data a byte array containing the data to be sent @param auth an instance of class <code>AuthType</code> representing the current authentication type @return a byte array corresponding to the computed CRC|
    
 
-	
-    /* Performs the padding to a byte array according to the proper authentication type
-     * @param data a byte array containing data @param auth an instance of class 
-     * <code>AuthType</code> representing the current authentication type
-     * @return a padded byte array */
-    public static byte[] padding(byte[] data, AuthType auth){
-	if((data == null) || (auth == null)) throw new NullPointerException();
-	return padding(data, auth, PaddingMode.ZEROPadding);
-    }
-	
-    /* Performs the padding to a byte array according to the proper authentication 
-     * type @param data a byte array containing data @param auth an instance of class 
-     * <code>AuthType</code> representing the current authentication type
-     * @param pad an instance of class <code>PaddingMode</code> indicating
-     * the mode by which the padding should be performed @return a padded byte array */
-    public static byte[] padding(byte[] data, AuthType auth, PaddingMode pad){
-	if((data == null) || (auth == null) || (pad == null)) 
-            throw new NullPointerException();
-	int bl = (auth == AuthType.AES) ? 16 : 8;
-	return Crypto.padding(data, bl, pad);
-    }
-	
-    /* Computes the Cyclic Redundancy Code @param com an instance of class 
-     * <code>ComCode</code> representing the command code @param plainParam a byte 
-     * array containing the send parameters in plain @param data a byte array 
-     * containing the data to be sent @param auth an instance of class 
-     * <code>AuthType</code> representing the current authentication type
-     * @return a byte array corresponding to the computed CRC */
-    public static byte[] CRC(ComCode com, byte[] plainParam, byte[] data,
-            AuthType auth){
-	if((com == null) || (plainParam == null) || (data == null) ||
-		(auth == null))
-            throw new NullPointerException();
-	if(auth == AuthType.NO_AUTH)
-            throw new DFLException(ExType.SECURITY_EXCEPTION);
-	else if(auth == AuthType.TDEA_NATIVE)
-            return CRC.CRC16(data);
-	else return CRC.CRC32(BAUtils.concatenateBAs(
-		com.toBA(), plainParam, data));
-    }
-	
-    /* Computes the Cyclic Redundancy Code @param com an instance of class 
-     * <code>ComCode</code> representing the command code @param data a byte array 
-     * containing the data to be sent @param auth an instance of class 
-     * <code>AuthType</code> representing the current authentication type
-     * @return a byte array corresponding to the computed CRC */
-    public static byte[] CRC(ComCode com, byte[] data, AuthType auth){
-	if((com == null) || (data == null) || (auth == null))
-            throw new NullPointerException();
-	if(auth == AuthType.NO_AUTH)
-            throw new DFLException(ExType.SECURITY_EXCEPTION);
-	else if(auth == AuthType.TDEA_NATIVE) return CRC.CRC16(data);
-	else return CRC.CRC32(BAUtils.concatenateBAs(com.toBA(), data));
-    }
-	
-    /* Computes the Cyclic Redundancy Code @param data a byte array containing the 
-     * data to be sent @param auth an instance of class <code>AuthType</code> 
-     * representing the current authentication type @return a byte array corresponding 
-     * to the computed CRC */
-    public static byte[] CRC(byte[] data, AuthType auth){
-	if((data == null) || (auth == null))
-            throw new NullPointerException();
-	if(auth == AuthType.NO_AUTH)
-            throw new DFLException(ExType.SECURITY_EXCEPTION);
-	else if(auth == AuthType.TDEA_NATIVE) return CRC.CRC16(data);
-	else return CRC.CRC32(data);
-    }
-	
-    private static byte[] CRC(byte[] data, SC sc, AuthType auth){
-	if((data == null) || (sc == null) || (auth == null))
-            throw new NullPointerException();
-	if(auth == AuthType.NO_AUTH)
-		throw new DFLException(ExType.SECURITY_EXCEPTION);
-	else if(auth == AuthType.TDEA_NATIVE)
-		return CRC.CRC16(data);
-	else return CRC.CRC32(BAUtils.concatenateBAs(data, sc.toBA()));
-    }
 	
     /* Checks the received Cyclic Redudancy Code @param res a byte array received 
      * from a card, without the status code @param sc an instance of class <code>SC</code> 
