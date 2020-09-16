@@ -1,4 +1,4 @@
-# DFLResponse
+# DFResponse
 Encapsulates the response returned by the execution of a native command in a Mifare DESFire. It contains an object of class <code>SC</code> representing the Status Code returned, and sometimes also a generic <code>Object</code> that can be casted to the particular class of the response field
 
 The class has the following methods and enummeration:
