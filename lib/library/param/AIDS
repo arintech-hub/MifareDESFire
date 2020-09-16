@@ -1,8 +1,0 @@
-# AIDS
-Creates an instance of class <code>AIDS</code> @param aids a byte array containing the list of application identifiers.
-
-The class has the following methods and enummeration:
-
-|METHODS                                       |DESCRIPTION                                                                                        |
-|:---------------------------------------------|:--------------------------------------------------------------------------------------------------|
-|public AID()|Creates a default application identifier|
