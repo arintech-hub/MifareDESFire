@@ -1,5 +1,4 @@
-#Size
-
+# Size
 Represents the storage space required for particular structures.
 
 The class has the following methods and enummeration:
