@@ -10,7 +10,7 @@ JaliscoApp -> 0x484000
            -> 14 keys
            -> AES-128
 
-|ID  |NAME   |TYPE    |SIZE |COMMUNICATION|ACCESS CONDITIONS|LOWER LIMIT|UPPER LIMIT|INIT VALUE|RECORDS|
+|ID  |NAME   |TYPE    |SIZE |COMMS|AC|LOWER_L|UPPER_L|VALUE|RECORDS|
 |:---|:------|:-------|:----|:------------|:----------------|:----------|:----------|:---------|:------|
 |0x01|Emision|Standard|48   |MAC          |F, N, 1, 0       |N/A        |N/A        |N/A       |N/A    |
 |0x02|
