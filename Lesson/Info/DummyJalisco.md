@@ -1,5 +1,5 @@
 # DummyJalisco
-// A collection of methods to create a dummy Jalisco card 
+A collection of methods to create a dummy Jalisco card 
 The class has the following methods and enummeration:
 
 |METHODS                                       |DESCRIPTION                                                                                        |
