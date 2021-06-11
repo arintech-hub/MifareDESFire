@@ -1,0 +1,15 @@
+apply plugin: 'java'
+apply plugin: 'jacoco'
+apply plugin: 'application'
+
+
+mainClassName = 'DESFire_Lesson.WriteFiles'
+
+repositories {
+    jcenter()
+}
+
+dependencies {
+    testImplementation     'junit:junit:4.13'
+    implementation fileTree(dir: 'lib', include: 'DESFireLib.jar')  
+}
