@@ -1,4 +1,4 @@
-# ChangeKeys
+# FormatCard
 A collection of methods to format a card
 
 The class has the following methods and enummeration:
