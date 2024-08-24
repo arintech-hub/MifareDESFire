@@ -19,7 +19,7 @@ import DESFireLib.utils.security.*;
  * @since 2021/06/10
  */
 
-// A collection of methods to create a dummy Jalisco card 
+// A collection of methods to create a dummy card 
 public class DummyJalisco {
     
     public static void main(String[] args){		
